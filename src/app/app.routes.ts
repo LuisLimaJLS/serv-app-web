@@ -9,7 +9,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    //component: HomePageComponent,
+    component: HomePageComponent,
     loadChildren: () => import('./views/home/home.routes').then(m => m.homeRoutes),
     //canActivate: [sessionGuard]
   }

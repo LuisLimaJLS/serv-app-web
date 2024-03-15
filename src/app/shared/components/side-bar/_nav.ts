@@ -3,27 +3,27 @@ export const navItems = [
   {
     name: 'Principal',
     icon: 'uil uil-estate',
-    router: ['/', 'tracks']
+    router: ['/', 'home']
   },
   {
     name: 'Buscar',
     icon: 'uil uil-search',
-    router: ['/', 'tracks']
+    router: ['/', 'search']
   },
   {
     name: 'Historial',
     icon: 'uil uil-history',
-    router: ['/', 'tracks']
+    router: ['/', 'history']
   },
   {
     name: 'Alertas',
     icon: 'uil uil-bell',
-    router: ['/', 'tracks']
+    router: ['/', 'alerts']
   },
   {
     name: 'Contacto',
     icon: 'uil uil-envelope-add',
-    router: ['/', 'tracks']
+    router: ['/', 'contact']
   },
 
 ];

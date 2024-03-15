@@ -2,24 +2,29 @@ import { Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
 export const homeRoutes: Routes = [
-  {
-    path: '',
-    component: HomePageComponent
-  },
+  //{
+  //  path: '',
+  //  component: HomePageComponent
+  //},
   {
     path: 'home',
-    component: HomePageComponent
-    //loadChildren:() => import('@modules/tracks/tracks.module').then(m => m.TracksModule)
+    loadChildren: () => import('@views/dashboard/dashboard.routes').then(m => m.dashboardRoutes)
   },
   {
-    path: 'favorites',
-    component: HomePageComponent
-    //loadChildren:() => import('@modules/favorites/favorites.module').then(m => m.FavoritesModule)
+    path: 'search',
+    loadChildren: () => import('@views/search/search.routes').then(m => m.searchRoutes)
   },
   {
     path: 'history',
-    component: HomePageComponent
-   // loadChildren:() => import('@modules/history/history.module').then(m => m.HistoryModule)
+    loadChildren: () => import('@views/history/history.routes').then(m => m.historyRoutes)
+  },
+  {
+    path: 'alerts',
+    loadChildren: () => import('@views/alerts/alerts.routes').then(m => m.alertsRoutes)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('@views/contact/contact.routes').then(m => m.contactRoutes)
   },
   {
     path: '**',

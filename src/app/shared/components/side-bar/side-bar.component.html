@@ -6,7 +6,7 @@
   <ul class="nav nav-pills flex-column mb-auto">
 
     <li class="nav-item" [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.defaultOptions">
-      <a href="#" class="nav-link text-white activez" aria-current="page">
+      <a href="{{item.router[1]}}" class="nav-link text-white activez" aria-current="page">
         <i [ngClass]="['uil',item.icon]"></i>
         {{item.name}}
       </a>
@@ -24,7 +24,7 @@
 
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item" [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.customOptions">
-      <a href="#" class="nav-link text-white activez" aria-current="page">
+      <a href="{{item.router[1]}}" class="nav-link text-white activez" aria-current="page">
         <i [ngClass]="['uil',item.icon]"></i>
         {{item.name}}
       </a>
