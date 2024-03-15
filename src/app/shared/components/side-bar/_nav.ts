@@ -1,29 +1,29 @@
-import { INavData } from '@coreui/angular';
-
-export const navItems: INavData[] = [
+//iconos https://iconscout.com/unicons/free-line-icons
+export const navItems = [
   {
-    name: 'Dashboard',
-    url: '/dashboard',
-    iconComponent: { name: 'cil-speedometer' },
+    name: 'Principal',
+    icon: 'uil uil-estate',
+    router: ['/', 'tracks']
   },
   {
-    title: true,
-    name: 'Theme'
+    name: 'Buscar',
+    icon: 'uil uil-search',
+    router: ['/', 'tracks']
   },
   {
-    name: 'Colors',
-    url: '/theme/colors',
-    //iconComponent: { name: 'cil-drop' }
+    name: 'Historial',
+    icon: 'uil uil-history',
+    router: ['/', 'tracks']
   },
   {
-    name: 'Typography',
-    url: '/theme/typography',
-    linkProps: { fragment: 'someAnchor' },
-    //iconComponent: { name: 'cil-pencil' }
+    name: 'Alertas',
+    icon: 'uil uil-bell',
+    router: ['/', 'tracks']
   },
   {
-    name: 'Components',
-    title: true
+    name: 'Contacto',
+    icon: 'uil uil-envelope-add',
+    router: ['/', 'tracks']
   },
 
 ];

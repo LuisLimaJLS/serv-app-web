@@ -1,24 +1,45 @@
 import { Component } from '@angular/core';
-import { SidebarModule } from '@coreui/angular';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { navItems } from './_nav';
-import { iconSubset } from 'src/app/icons/icon-subset';
-import { IconSetService } from '@coreui/icons-angular';
-import { NgScrollbarModule } from 'ngx-scrollbar';
-
 @Component({
   selector: 'app-side-bar',
   standalone: true,
-  imports: [SidebarModule, NgScrollbarModule],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.css'
 })
 export class SideBarComponent {
+
+  mainMenu: {
+    defaultOptions: Array<any>, customOptions: Array<any>
+  } = { defaultOptions: [], customOptions: [] }
+
   public navItems = navItems;
 
-  constructor(
-    private iconSetService: IconSetService
-  ){
-    iconSetService.icons = { ...iconSubset };
+  constructor(private router: Router) { }
+  ngOnInit(): void {
+    this.mainMenu.defaultOptions = this.navItems
+    this.mainMenu.customOptions = [
+      {
+        name: 'MED-2053917C9',
+        icon: 'uil uil-tear',
+        router: ['/']
+      },
+      {
+        name: 'MED-2053917C9',
+        icon: 'uil uil-tear',
+        router: ['/']
+      },
+      {
+        name: 'MED-2053917C9',
+        icon: 'uil uil-tear',
+        router: ['/']
+      },
+    ]
   }
 
 
