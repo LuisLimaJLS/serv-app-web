@@ -24,17 +24,17 @@ export class HeaderComponent {
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        router: ['/']
+        url: ['/']
       },
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        router: ['/']
+        url: ['/']
       },
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        router: ['/']
+        url: ['/']
       },
     ]
   }

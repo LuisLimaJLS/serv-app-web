@@ -1,3 +1,4 @@
+
 <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
   <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
     <img src="assets/images/logo.png" width="130px" alt="SERV-APP" />
@@ -6,11 +7,12 @@
   <ul class="nav nav-pills flex-column mb-auto">
 
     <li class="nav-item" [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.defaultOptions">
-      <a href="{{item.router[1]}}" class="nav-link text-white activez" aria-current="page">
+      <a href="{{item.url[1]}}" class="nav-link text-white activez" aria-current="page">
         <i [ngClass]="['uil',item.icon]"></i>
         {{item.name}}
       </a>
     </li>
+
     <!--
     <li class="nav-item">
       <a href="#" class="nav-link active" aria-current="page">
@@ -19,12 +21,13 @@
       </a>
     </li>
     -->
+
   </ul>
   <hr>
 
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item" [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.customOptions">
-      <a href="{{item.router[1]}}" class="nav-link text-white activez" aria-current="page">
+      <a href="{{item.url[0]}}" class="nav-link text-white activez" aria-current="page">
         <i [ngClass]="['uil',item.icon]"></i>
         {{item.name}}
       </a>
@@ -34,3 +37,29 @@
 </div>
 
 
+<!--
+<c-sidebar
+  #sidebar="cSidebar"
+  class="d-print-none sidebar sidebar-fixed"
+  id="sidebar"
+  visible
+>
+<c-sidebar-brand
+[brandFull]="{
+  src: 'assets/images/logo.png',
+  width: 200,
+  height: 46,
+  alt: 'CoreUI Logo'
+}"
+[brandNarrow]="{
+  src: 'assets/images/logo-mins.png',
+  width: 46,
+  height: 46,
+  alt: 'CoreUI Logo'
+}"
+routerLink="./"
+/>
+  <c-sidebar-nav [navItems]="navItems" dropdownMode="close"></c-sidebar-nav>
+  <c-sidebar-toggler></c-sidebar-toggler>
+</c-sidebar>
+-->

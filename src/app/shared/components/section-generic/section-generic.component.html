@@ -1,0 +1,21 @@
+<div class="section--generic">
+  <h1 class="section--generic__title">{{title}}</h1>
+
+  <!--<c-row>
+    <c-col *ngFor="let abonado of dataAbonados; index as i" [lg]="4">
+      <app-card-service [abonado]="abonado" [mode]="mode" *ngIf="mode == 'small'"></app-card-service>
+      <app-card-line-chart [abonado]="abonado" [mode]="mode" *ngIf="mode == 'big'"></app-card-line-chart>
+    </c-col>
+  </c-row>-->
+
+  <c-row *ngIf="mode == 'small'">
+    <c-col *ngFor="let abonado of dataAbonados; index as i" [lg]="3">
+      <app-card-service [abonado]="abonado" [mode]="mode"></app-card-service>
+    </c-col>
+  </c-row>
+  <c-row *ngIf="mode == 'big'">
+    <c-col *ngFor="let abonado of dataAbonados; index as i" [lg]="4">
+      <app-card-line-chart [abonado]="abonado" [mode]="mode"></app-card-line-chart>
+    </c-col>
+  </c-row>
+</div>

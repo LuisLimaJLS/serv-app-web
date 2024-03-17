@@ -1,0 +1,10 @@
+<c-card [cBorder]="abonado.color.color" [textColor]="abonado.color.textColor" class="mb-3">
+  <c-card-header>{{abonado.nro_medidor}}</c-card-header>
+  <c-card-body>
+    <c-chart
+      [data]="data"
+      type="line"
+      (chartRef)="handleChartRef($event)">
+    </c-chart>
+  </c-card-body>
+</c-card>

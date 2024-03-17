@@ -7,14 +7,14 @@
         <ul class="dropdown-menu text-small shadow">
           <!--<li><a class="dropdown-item active" href="#" aria-current="page">Overview</a></li>-->
           <li *ngFor="let item of mainMenu.defaultOptions">
-            <a class="dropdown-item" href="{{item.router[1]}}">
+            <a class="dropdown-item" href="{{item.url[1]}}">
               <i [ngClass]="['uil',item.icon]"></i>
               {{item.name}}
             </a>
           </li>
           <li><hr class="dropdown-divider"></li>
           <li *ngFor="let item of mainMenu.customOptions">
-            <a class="dropdown-item" href="{{item.router[1]}}">
+            <a class="dropdown-item" href="{{item.url[0]}}">
               <i [ngClass]="['uil',item.icon]"></i>
               {{item.name}}
             </a>

@@ -1,0 +1,16 @@
+<c-card [cBorder]="abonado.color.color" [textColor]="abonado.color.textColor" class="mb-3">
+  <c-card-header>Agua Potable</c-card-header>
+  <c-card-body>
+    <h5 cCardTitle>{{abonado.nro_medidor}}</h5>
+    <ul>
+      <li>Categoría: {{abonado.id_categoria}}</li>
+      <li>Predio: {{abonado.id_predio}}</li>
+      <li *ngIf="abonado.estado == 1">Estado: Activo</li>
+      <li *ngIf="abonado.estado == 0">Estado: Inactivo</li>
+      <li>Ubicación: {{abonado.id_ruta}}</li>
+    </ul>
+    <p cCardText>
+    </p>
+    <button [color]="abonado.color.color" cButton>Ver Información</button>
+  </c-card-body>
+</c-card>

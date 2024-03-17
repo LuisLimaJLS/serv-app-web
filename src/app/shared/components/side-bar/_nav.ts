@@ -1,29 +1,45 @@
+import { INavData } from '@coreui/angular';
 //iconos https://iconscout.com/unicons/free-line-icons
-export const navItems = [
+export const navItems: INavData[] = [
   {
     name: 'Principal',
     icon: 'uil uil-estate',
-    router: ['/', 'home']
+    //router: ['/', 'home']
+    url: ['/', 'home']
   },
   {
     name: 'Buscar',
     icon: 'uil uil-search',
-    router: ['/', 'search']
+    url: ['/', 'search']
   },
   {
     name: 'Historial',
     icon: 'uil uil-history',
-    router: ['/', 'history']
+    url: ['/', 'history']
   },
   {
     name: 'Alertas',
     icon: 'uil uil-bell',
-    router: ['/', 'alerts']
+    url: ['/', 'alerts']
   },
   {
     name: 'Contacto',
     icon: 'uil uil-envelope-add',
-    router: ['/', 'contact']
+    url: ['/', 'contact']
   },
 
 ];
+
+
+
+export const navItems2: INavData[] = [
+  {
+    name: 'Principal',
+    url: '/home',
+    iconComponent: { name: 'cil-speedometer' },
+    badge: {
+      color: 'info',
+      text: 'NEW'
+    }
+  },
+]

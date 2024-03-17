@@ -2,12 +2,18 @@ import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { navItems } from './_nav';
+import { SidebarComponent, SidebarBrandComponent, SidebarNavComponent, SidebarTogglerComponent } from '@coreui/angular';
+
 @Component({
   selector: 'app-side-bar',
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SidebarComponent,
+    SidebarBrandComponent,
+    SidebarNavComponent,
+    SidebarTogglerComponent,
   ],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.css'
@@ -27,17 +33,17 @@ export class SideBarComponent {
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        router: ['/']
+        url: ['/']
       },
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        router: ['/']
+        url: ['/']
       },
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        router: ['/']
+        url: ['/']
       },
     ]
   }
