@@ -4,29 +4,39 @@ import { CardModule, BorderDirective, TemplateIdDirective} from '@coreui/angular
 import { MatPaginator, MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { AbonadoModel } from '@core/models/abonado.model';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { HistoryService } from '@views/history/services/history.service';
+import { CommonModule } from '@angular/common';
+import { PayToTextPipe } from "@shared/pipes/pay-to-text.pipe";
+import { StateToTextPipe } from "@shared/pipes/state-to-text.pipe";
 
 @Component({
-  selector: 'app-list-history-page',
-  standalone: true,
-  imports: [
-    CardModule,
-    BorderDirective,
-    MatPaginatorModule,
-    MatTableModule,
-    TemplateIdDirective
-  ],
-  templateUrl: './list-history-page.component.html',
-  styleUrl: './list-history-page.component.css'
+    selector: 'app-list-history-page',
+    standalone: true,
+    templateUrl: './list-history-page.component.html',
+    styleUrl: './list-history-page.component.css',
+    imports: [
+        CommonModule,
+        CardModule,
+        BorderDirective,
+        MatPaginatorModule,
+        MatTableModule,
+        TemplateIdDirective,
+        MatFormFieldModule,
+        PayToTextPipe,
+        StateToTextPipe
+    ]
 })
 export class ListHistoryPageComponent  implements AfterViewInit{
 
+  displayedColumns: string[] = ['emision', 'lectura_actual', 'lectura_anterior', 'consumo', 'valor', 'pagado', 'fecha_cobro', 'fecha_emision', 'novedad', 'estado'];
   dataSource = new MatTableDataSource<any>();
-  displayedColumns: string[] = ['name']; // Agrega más columnas si es necesario
-  searchTerm: string | undefined;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
   @Input() abonado: AbonadoModel = { id: 0,
     id_predio: '',
     id_categoria: '',
@@ -43,43 +53,27 @@ export class ListHistoryPageComponent  implements AfterViewInit{
     color:{ color: 'primary', textColor: 'primary' }
   };
 
-  constructor(public _MatPaginatorIntl: MatPaginatorIntl) { }
+  constructor(
+    private historyService: HistoryService,
+    public _MatPaginatorIntl: MatPaginatorIntl
+  ) {
+
+  }
   ngOnInit(): void {
     this._MatPaginatorIntl.itemsPerPageLabel = 'Registros por Pagina';
     this.loadDataAll();
   }
 
   async loadDataAll(): Promise<any> {
-        ////////////////
-    // Simula la carga de datos
-    this.dataSource = new MatTableDataSource([
-      { name: 'Item 1' },
-      { name: 'Item 2' },
-      { name: 'Item 3' },
-      { name: 'Item 1' },
-      { name: 'Item 2' },
-      { name: 'Item 3' },
-      { name: 'Item 1' },
-      { name: 'Item 2' },
-      { name: 'Item 3' },
-      { name: 'Item 1' },
-      { name: 'Item 2' },
-      { name: 'Item 3' },
-      { name: 'Item 1' },
-      { name: 'Item 2' },
-      { name: 'Item 3' },
-      { name: 'Item 1' },
-      { name: 'Item 2' },
-      { name: 'Item 3' },
-      // Agrega más datos si es necesario
-    ]);
-
-    // Configura la paginación
-    this.dataSource.paginator = this.paginator;
-
+    this.historyService.getAllAbonadoHistory$(this.abonado.id).subscribe({
+      next: (info) => {
+        this.dataSource = new MatTableDataSource<any>(info);
+        this.dataSource.paginator = this.paginator;
+      },
+      error: (error: any) => {console.log("ERROR: ",error)}
+    })
   }
   filterData($event: any){
     this.dataSource.filter = $event.target.value.trim().toLocaleLowerCase();
   }
-
 }

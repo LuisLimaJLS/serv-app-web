@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AbonadoModel } from '@core/models/abonado.model';
 import { environment } from 'src/environments/environment';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -12,8 +11,8 @@ export class HistoryService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllAbonados$(): Observable<any> {
-    return this.httpClient.get(`${this.URL}/abonadosByCI/2506716965001`)
+  getAllAbonadoHistory$(id_abonado:number): Observable<any> {
+    return this.httpClient.get(`${this.URL}/historyByAbonado/${id_abonado}`)
   }
 
 }

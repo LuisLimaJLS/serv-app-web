@@ -2,23 +2,92 @@
   <c-card-header>Historial</c-card-header>
   <c-card-body>
     <div>
-      <input type="text" placeholder="Buscar" (keyup)="filterData($event)">
+      <input type="text" class="form-control me-2" placeholder="Buscar..." (keyup)="filterData($event)">
     </div>
-
+    <!--
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-      <!-- Define las columnas de la tabla -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Nombre </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
-      <!-- Agrega más columnas si es necesario -->
+      <ng-container matColumnDef="name1">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name2">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+    -->
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+        <ng-container matColumnDef="emision">
+          <th mat-header-cell *matHeaderCellDef> <strong>Emision</strong></th>
+          <td mat-cell *matCellDef="let element"> {{element.emsion}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lectura_actual">
+          <th mat-header-cell *matHeaderCellDef> Lectura Actual </th>
+          <td mat-cell *matCellDef="let element"> {{element.lectura_actual}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lectura_anterior">
+          <th mat-header-cell *matHeaderCellDef> Lectura Anterior </th>
+          <td mat-cell *matCellDef="let element"> {{element.lectura_anterior}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="consumo">
+          <th mat-header-cell *matHeaderCellDef> Consumo </th>
+          <td mat-cell *matCellDef="let element"> {{element.consumo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="valor">
+          <th mat-header-cell *matHeaderCellDef> Valor </th>
+          <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="pagado">
+          <th mat-header-cell *matHeaderCellDef> Pagado </th>
+          <td mat-cell *matCellDef="let element"> {{element.pagado | payToText}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fecha_cobro">
+          <th mat-header-cell *matHeaderCellDef> Fecha Cobro </th>
+          <td mat-cell *matCellDef="let element"> {{element.fecha_cobro | date:"dd/MM/yyyy"}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fecha_emision">
+          <th mat-header-cell *matHeaderCellDef> Fecha Emision </th>
+          <td mat-cell *matCellDef="let element"> {{element.fecha_emision | date:"dd/MM/yyyy"}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="novedad">
+          <th mat-header-cell *matHeaderCellDef> Novedad </th>
+          <td mat-cell *matCellDef="let element"> {{element.novedad}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef> Estado </th>
+          <td mat-cell *matCellDef="let element"> {{element.estado | stateToText}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
   </c-card-body>
 </c-card>
