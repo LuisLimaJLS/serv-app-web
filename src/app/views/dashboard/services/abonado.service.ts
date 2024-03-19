@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Observable, catchError, map, mergeMap, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AbonadoModel } from '@core/models/abonado.model';
 import { EmisionModel } from '@core/models/emision.mode';
 

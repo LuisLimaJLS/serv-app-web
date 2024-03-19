@@ -17,7 +17,7 @@ import { CardModule, RowComponent, ColComponent, BorderDirective, ButtonDirectiv
   styleUrl: './card-service.component.css'
 })
 export class CardServiceComponent {
-  @Input() mode: 'small' | 'big' = 'small';
+  @Input() mode: 'service' | 'consume_summary' | 'value_summary' ='service'
   @Input() abonado: AbonadoModel = { id: 0,
     id_predio: '',
     id_categoria: '',

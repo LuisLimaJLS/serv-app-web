@@ -1,3 +1,18 @@
 /*.dropdown-toggle {
   color:#FFF !important;
 }*/
+
+header {
+  background-color: #bec3d1;
+  color: #fff;
+}
+
+.sidebar-mymenu {
+  transition: width 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar-mymenu {
+    width: 0;
+  }
+}

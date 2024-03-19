@@ -8,12 +8,12 @@
     </c-col>
   </c-row>-->
 
-  <c-row *ngIf="mode == 'small'">
+  <c-row *ngIf="mode == 'service'">
     <c-col *ngFor="let abonado of dataAbonados; index as i" [lg]="3">
       <app-card-service [abonado]="abonado" [mode]="mode"></app-card-service>
     </c-col>
   </c-row>
-  <c-row *ngIf="mode == 'big'">
+  <c-row *ngIf="mode == 'consume_summary'">
     <c-col *ngFor="let abonado of dataAbonados; index as i" [lg]="4">
       <app-card-line-chart [abonado]="abonado" [mode]="mode"></app-card-line-chart>
     </c-col>

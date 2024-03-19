@@ -1,39 +1,29 @@
 
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-    <img src="assets/images/logo.png" width="130px" alt="SERV-APP" />
-  </a>
+<!--div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;"-->
+<div class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="">
+      <img src="assets/images/logo.png" width="190px" alt="SERV-APP" />
+    </a>
+  </div>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
-
     <li class="nav-item" [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.defaultOptions">
-      <a href="{{item.url[1]}}" class="nav-link text-white activez" aria-current="page">
-        <i [ngClass]="['uil',item.icon]"></i>
-        {{item.name}}
+      <a href="{{item.url[1]}}" class="nav-link text-white" aria-current="page">
+        <i class="icon-with-text" [ngClass]="['uil',item.icon]"> </i>
+        <span>{{item.name}}</span>
       </a>
     </li>
-
-    <!--
-    <li class="nav-item">
-      <a href="#" class="nav-link active" aria-current="page">
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-        Home
-      </a>
-    </li>
-    -->
-
   </ul>
   <hr>
-
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item" [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.customOptions">
       <a href="{{item.url[0]}}" class="nav-link text-white activez" aria-current="page">
-        <i [ngClass]="['uil',item.icon]"></i>
-        {{item.name}}
+        <i class="icon-with-text" [ngClass]="['uil',item.icon]"></i>
+        <span>{{item.name}}</span>
       </a>
     </li>
   </ul>
-
 </div>
 
 

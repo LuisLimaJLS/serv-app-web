@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { SidebarNavHelper } from '@coreui/angular';
+import { provideAnimations } from '@angular/platform-browser/animations';
 //import { injectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
 
 export const appConfig: ApplicationConfig = {
@@ -15,6 +16,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient (
       //withInterceptors ([injectSessionInterceptor])
     ),
-    SidebarNavHelper
-  ]
+    SidebarNavHelper,
+    provideAnimations()
+  ],
+
 };

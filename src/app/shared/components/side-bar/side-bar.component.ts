@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { navItems } from './_nav';
@@ -25,6 +25,16 @@ export class SideBarComponent {
   } = { defaultOptions: [], customOptions: [] }
 
   public navItems = navItems;
+
+  isSidebarOpen = true;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: { target: { innerWidth: number; }; }) {
+    this.toggleSidebar(event.target.innerWidth);
+  }
+
+  toggleSidebar(windowWidth: number) {
+    this.isSidebarOpen = windowWidth > 768;
+  }
 
   constructor(private router: Router) { }
   ngOnInit(): void {

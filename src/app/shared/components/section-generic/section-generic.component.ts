@@ -23,7 +23,7 @@ import { CardLineChartComponent } from '../card-line-chart/card-line-chart.compo
 })
 export class SectionGenericComponent {
   @Input() title:string=''
-  @Input() mode: 'small' | 'big' ='big'
+  @Input() mode: 'service' | 'consume_summary' | 'value_summary' ='service'
   @Input() dataAbonados: Array<AbonadoModel> = []
 
   colors = [

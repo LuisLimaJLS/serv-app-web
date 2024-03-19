@@ -1,1 +1,29 @@
-<p>history-page works!</p>
+<div class="history-page">
+  <h1>Historial por Servicio</h1>
+  <div class="accordion" id="accordionExample" *ngFor="let abonado of dataAbonados; first as isFirst">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button [ngClass]="isFirst ? 'accordion-button text-'+abonado.color.textColor : 'accordion-button collapsed text-'+abonado.color.textColor"  type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse-' + abonado.id" [attr.aria-expanded]="isFirst" [attr.aria-controls]="'collapse-' + abonado.id">
+        <strong>{{abonado.nro_medidor}}:</strong> &nbsp; {{abonado.id_ruta}}
+        </button>
+      </h2>
+      <div id="collapse-{{abonado.id}}"  [ngClass]="isFirst ? 'accordion-collapse collapse show' : 'accordion-collapse collapse'" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <c-row>
+            <c-col index as i [lg]="6">
+              <app-card-line-chart [abonado]="abonado" [mode]='"value_summary"'></app-card-line-chart>
+            </c-col>
+            <c-col index as i [lg]="6">
+              <app-card-line-chart [abonado]="abonado" [mode]='"consume_summary"'></app-card-line-chart>
+            </c-col>
+          </c-row>
+          <c-row>
+            <c-col index as i [lg]="12">
+              <app-list-history-page [abonado]="abonado" ></app-list-history-page>
+            </c-col>
+          </c-row>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,7 +15,7 @@ import { CardModule, BorderDirective} from '@coreui/angular';
   styleUrl: './card-line-chart.component.scss'
 })
 export class CardLineChartComponent {
-  @Input() mode: 'small' | 'big' = 'small';
+  @Input() mode: 'service' | 'consume_summary' | 'value_summary' ='service'
   @Input() abonado: AbonadoModel = { id: 0,
     id_predio: '',
     id_categoria: '',
@@ -39,7 +39,7 @@ export class CardLineChartComponent {
     labels: this.emisiones,
     datasets: [
       {
-        label: 'Consumo',
+        label: 'Consumo m3',
         backgroundColor: 'rgba(151, 187, 205, 0.2)',
         borderColor: 'rgba(151, 187, 205, 1)',
         pointBackgroundColor: 'rgba(151, 187, 205, 1)',
@@ -47,7 +47,7 @@ export class CardLineChartComponent {
         data: this.consumos
       },
       {
-        label: 'Consumo Promedio',
+        label: 'Consumo Promedio m3',
         backgroundColor: 'rgba(220, 220, 220, 0.2)',
         borderColor: 'rgba(220, 220, 220, 1)',
         pointBackgroundColor: 'rgba(220, 220, 220, 1)',
@@ -75,8 +75,17 @@ export class CardLineChartComponent {
   loadDataAll() {
     //console.log("HOLA >> ", this.abonado.emisiones?.map(a => (a.emsion)))
     this.emisiones = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.emsion+"")) : [];
-    this.consumos = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.consumo)) : [];
-    this.consumos_promedio = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.promedio_consumo)) : [];
+    if (this.mode == 'value_summary'){
+      this.consumos = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.valor)) : [];
+      this.consumos_promedio = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.promedio_valor)) : [];
+      this.data['datasets'][0]['label'] = "Valor $";
+      this.data['datasets'][1]['label'] = "Valor Promerdio $";
+    } else {
+      this.consumos = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.consumo)) : [];
+      this.consumos_promedio = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.promedio_consumo)) : [];
+    }
+
+
     this.data['labels'] = this.emisiones.reverse();
     this.data['datasets'][0]['data'] = this.consumos.reverse();
     this.data['datasets'][1]['data'] = this.consumos_promedio.reverse();

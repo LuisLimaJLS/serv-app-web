@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { navItems } from '../side-bar/_nav';
 import { Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -16,9 +16,12 @@ export class HeaderComponent {
   } = { defaultOptions: [], customOptions: [] }
 
   public navItems = navItems;
-
-  constructor(private router: Router) { }
+  isSidebarOpen = false;
+  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) { }
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.toggleSidebar(window.innerWidth);
+    }
     this.mainMenu.defaultOptions = this.navItems
     this.mainMenu.customOptions = [
       {
@@ -38,7 +41,15 @@ export class HeaderComponent {
       },
     ]
   }
-
-
-
+  @HostListener('window:resize', ['$event'])
+  onResize(event: { target: { innerWidth: number; }; }) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.toggleSidebar(event.target.innerWidth);
+    }
+  }
+  toggleSidebar(windowWidth: number) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isSidebarOpen = windowWidth < 768;
+    }
+  }
 }
