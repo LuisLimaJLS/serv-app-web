@@ -4,7 +4,7 @@
 
 header {
   background-color: #bec3d1;
-  color: #fff;
+  color: #101523;
 }
 
 .sidebar-mymenu {
@@ -15,4 +15,8 @@ header {
   .sidebar-mymenu {
     width: 0;
   }
+}
+
+.modal-custom {
+  max-width: 800px; /* Cambia este valor según tus necesidades */
 }

@@ -1,6 +1,6 @@
 import { INavData } from '@coreui/angular';
 //iconos https://iconscout.com/unicons/free-line-icons
-export const navItems: INavData[] = [
+export const navItems = [
   {
     name: 'Principal',
     icon: 'uil uil-estate',

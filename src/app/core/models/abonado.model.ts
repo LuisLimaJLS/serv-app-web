@@ -1,4 +1,4 @@
-import { EmisionModel } from "./emision.mode";
+import { EmisionModel } from "./emision.model";
 
 export interface AbonadoModel {
   id: number;

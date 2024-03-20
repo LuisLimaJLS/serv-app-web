@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { navItems } from './_nav';
-import { SidebarComponent, SidebarBrandComponent, SidebarNavComponent, SidebarTogglerComponent } from '@coreui/angular';
+//import { SidebarComponent, SidebarBrandComponent, SidebarNavComponent, SidebarTogglerComponent } from '@coreui/angular';
 
 @Component({
   selector: 'app-side-bar',
@@ -10,10 +10,10 @@ import { SidebarComponent, SidebarBrandComponent, SidebarNavComponent, SidebarTo
   imports: [
     CommonModule,
     RouterModule,
-    SidebarComponent,
-    SidebarBrandComponent,
-    SidebarNavComponent,
-    SidebarTogglerComponent,
+    //SidebarComponent,
+    //SidebarBrandComponent,
+    //SidebarNavComponent,
+    //SidebarTogglerComponent,
   ],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.css'
@@ -43,17 +43,20 @@ export class SideBarComponent {
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        url: ['/']
+        router: ['/', 'home', 'subscriber'],
+        query : {abonado: 4546546}
       },
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        url: ['/']
+        router: ['/', 'home', 'subscriber'],
+        query : {abonado: 4546546}
       },
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        url: ['/']
+        router: ['/', 'home', 'subscriber'],
+        query : {abonado: 4546546}
       },
     ]
   }

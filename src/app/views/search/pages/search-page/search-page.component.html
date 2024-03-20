@@ -1,1 +1,70 @@
-<p>search-page works!</p>
+<div class="search-page">
+  <div class="search-container">
+    <input [(ngModel)]="src" (ngModelChange)="callSearch($event)" type="search" class="search-box" placeholder="Buscar...">
+    <i class="uil uil-search search-icon"></i>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-body bs-light-rgb" *ngIf="mode == 'full'">
+      <table class="table">
+        <thead>
+          <tr class="table-light">
+            <th scope="col">Cuenta</th>
+            <th scope="col">Medidor</th>
+            <th scope="col">Ubicacion</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Emision</th>
+            <th scope="col">Fecha Emision</th>
+            <th scope="col">Lectura Actual</th>
+            <th scope="col">Lectura Anterior</th>
+            <th scope="col">Consumo</th>
+            <th scope="col">Consumo Prom.</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Valor Prom.</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of dataSearch">
+          <tr [ngClass]="[item.color.tableColor]">
+            <th scope="row">{{item.id_abonado}}</th>
+            <td>{{item.nro_medidor}}</td>
+            <td>{{item.id_ruta}}</td>
+            <td>{{item.id_categoria}}</td>
+            <td>{{item.emsion}}</td>
+            <td>{{item.fecha_emision}}</td>
+            <td>{{item.lectura_actual}}</td>
+            <td>{{item.lectura_anterior}}</td>
+            <td>{{item.consumo}}</td>
+            <td>{{item.promedio_consumo}}</td>
+            <td>{{item.valor}}</td>
+            <td>{{item.promedio_valor}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-body bs-light-rgb" *ngIf="mode == 'min'">
+      <table class="table">
+        <thead>
+          <tr class="table-light">
+            <th scope="col">Cuenta</th>
+            <th scope="col">Medidor</th>
+            <th scope="col">Emision</th>
+            <th scope="col">Fecha Emision</th>
+            <th scope="col">Consumo</th>
+            <th scope="col">Valor</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of dataSearch">
+          <tr [ngClass]="[item.color.tableColor]">
+            <th scope="row">{{item.id_abonado}}</th>
+            <td>{{item.nro_medidor}}</td>
+            <td>{{item.emsion}}</td>
+            <td>{{item.fecha_emision}}</td>
+            <td>{{item.consumo}}</td>
+            <td>{{item.valor}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

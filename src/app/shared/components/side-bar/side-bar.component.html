@@ -8,19 +8,19 @@
   </div>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item" [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.defaultOptions">
-      <a href="{{item.url[1]}}" class="nav-link text-white" aria-current="page">
-        <i class="icon-with-text" [ngClass]="['uil',item.icon]"> </i>
-        <span>{{item.name}}</span>
+    <li class="nav-item" *ngFor="let item of mainMenu.defaultOptions">
+      <a class="nav-link text-white cursor-pointer" [routerLink]="item.url">
+        <i class="icon-with-text" [ngClass]="['uil', item.icon]"></i>
+        <span>{{ item.name }}</span>
       </a>
     </li>
   </ul>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item" [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.customOptions">
-      <a href="{{item.url[0]}}" class="nav-link text-white activez" aria-current="page">
-        <i class="icon-with-text" [ngClass]="['uil',item.icon]"></i>
-        <span>{{item.name}}</span>
+    <li class="nav-item" *ngFor="let item of mainMenu.customOptions">
+      <a class="nav-link text-white cursor-pointer" [routerLink]="item.router" [queryParams]="item.query">
+        <i class="icon-with-text" [ngClass]="['uil', item.icon]"></i>
+        <span>{{ item.name }}</span>
       </a>
     </li>
   </ul>

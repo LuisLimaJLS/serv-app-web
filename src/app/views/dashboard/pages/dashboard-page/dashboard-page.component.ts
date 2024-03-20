@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AbonadoModel } from '@core/models/abonado.model';
-import { EmisionModel } from '@core/models/emision.mode';
+import { EmisionModel } from '@core/models/emision.model';
 import { SectionGenericComponent } from '@shared/components/section-generic/section-generic.component';
 import { AbonadoService } from '@views/dashboard/services/abonado.service';
 import { response } from 'express';

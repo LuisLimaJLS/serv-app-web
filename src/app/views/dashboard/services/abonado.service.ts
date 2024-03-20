@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable, of } from 'rxjs';
 import { AbonadoModel } from '@core/models/abonado.model';
-import { EmisionModel } from '@core/models/emision.mode';
+import { EmisionModel } from '@core/models/emision.model';
 
 @Injectable({
   providedIn: 'root'

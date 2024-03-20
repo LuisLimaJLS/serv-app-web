@@ -2,13 +2,14 @@ import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { navItems } from '../side-bar/_nav';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { SearchPageComponent } from "@views/search/pages/search-page/search-page.component";
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+    selector: 'app-header',
+    standalone: true,
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css',
+    imports: [CommonModule, RouterModule, SearchPageComponent]
 })
 export class HeaderComponent {
   mainMenu: {
@@ -27,17 +28,20 @@ export class HeaderComponent {
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        url: ['/']
+        router: ['/', 'home', 'subscriber'],
+        query : {abonado: 4546546}
       },
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        url: ['/']
+        router: ['/', 'home', 'subscriber'],
+        query : {abonado: 4546546}
       },
       {
         name: 'MED-2053917C9',
         icon: 'uil uil-tear',
-        url: ['/']
+        router: ['/', 'home', 'subscriber'],
+        query : {abonado: 4546546}
       },
     ]
   }

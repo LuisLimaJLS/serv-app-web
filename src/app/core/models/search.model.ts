@@ -1,0 +1,21 @@
+export interface SearchModel {
+  id_abonado:number;
+  id_emision:number;
+  nro_medidor:string;
+  emsion:string;
+  fecha_emision:Date;
+  consumo:number;
+  valor:number;
+  estado:number;
+  pagado:number;
+  id_ruta:string;
+  id_predio:string;
+  id_categoria:string;
+  novedad:string;
+  lectura_actual:number;
+  lectura_anterior:number;
+  promedio_consumo:number;
+  promedio_valor:number;
+  fecha_cobro:Date;
+  color?:any;
+}

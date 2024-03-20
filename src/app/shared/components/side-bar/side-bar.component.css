@@ -41,6 +41,15 @@ a {
   margin-right: 10px; /* Espacio entre el icono y el texto */
   margin-left: 10px;
 }
+
+.cursor-pointer {
+  cursor: pointer; /* Cambia el cursor a una mano */
+  margin-right: 10px; /* Espacio entre el icono y el texto */
+  margin-left: 10px;
+}
+.cursor-pointer:hover {
+  background-color: #162233;
+}
 /*
 body {
   min-height: 100vh;
