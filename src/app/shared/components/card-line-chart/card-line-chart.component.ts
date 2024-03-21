@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { AbonadoModel } from '@core/models/abonado.model';
 import { ChartjsComponent } from '@coreui/angular-chartjs';
 import { CardModule, BorderDirective} from '@coreui/angular';
+import { EmisionModel } from '@core/models/emision.model';
 
 @Component({
   selector: 'app-card-line-chart',
@@ -15,8 +16,12 @@ import { CardModule, BorderDirective} from '@coreui/angular';
   styleUrl: './card-line-chart.component.scss'
 })
 export class CardLineChartComponent {
-  @Input() mode: 'service' | 'consume_summary' | 'value_summary' ='service'
-  @Input() abonado: AbonadoModel = { id: 0,
+  @Input() header = 'MEDIDOR';
+  @Input() color = { color: 'success', textColor: 'success' };
+  //@Input() dataEmisiones: Array<any> = [];
+  @Input() dataEmisiones: EmisionModel[] | undefined = [];
+  @Input() mode: 'service' | 'consume_summary' | 'value_summary' | 'all_summary' ='service';
+  /*@Input() abonado: AbonadoModel = { id: 0,
     id_predio: '',
     id_categoria: '',
     nro_medidor: '545646',
@@ -30,7 +35,7 @@ export class CardLineChartComponent {
     id_ruta: '',
     situacion: '',
     color:{ color: 'primary', textColor: 'primary' }
-  };
+  };*/
 
   emisiones = ['202305', '202306', '202307', '202308', '202309', '202310'];
   consumos = [0, 0, 0, 0, 0, 0];
@@ -73,19 +78,19 @@ export class CardLineChartComponent {
     this.loadDataAll()
   }
   loadDataAll() {
-    //console.log("HOLA >> ", this.abonado.emisiones?.map(a => (a.emsion)))
-    this.emisiones = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.emsion+"")) : [];
+    //console.log("HOLA >> ", this.dataEmisiones?.map(a => (a.emsion)))
+    this.emisiones = this.dataEmisiones ? this.dataEmisiones?.map(a => (a.emsion+"")) : [];
     if (this.mode == 'value_summary'){
-      this.consumos = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.valor)) : [];
-      this.consumos_promedio = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.promedio_valor)) : [];
+      this.consumos = this.dataEmisiones ? this.dataEmisiones?.map(a => (a.valor)) : [];
+      this.consumos_promedio = this.dataEmisiones ? this.dataEmisiones?.map(a => (a.promedio_valor)) : [];
       this.data['datasets'][0]['label'] = "Valor $";
       this.data['datasets'][1]['label'] = "Valor Promerdio $";
-    } else {
-      this.consumos = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.consumo)) : [];
-      this.consumos_promedio = this.abonado.emisiones ? this.abonado.emisiones?.map(a => (a.promedio_consumo)) : [];
+    } else if (this.mode == 'consume_summary'){
+      this.consumos = this.dataEmisiones ? this.dataEmisiones?.map(a => (a.consumo)) : [];
+      this.consumos_promedio = this.dataEmisiones ? this.dataEmisiones?.map(a => (a.promedio_consumo)) : [];
+    } else{
+
     }
-
-
     this.data['labels'] = this.emisiones.reverse();
     this.data['datasets'][0]['data'] = this.consumos.reverse();
     this.data['datasets'][1]['data'] = this.consumos_promedio.reverse();

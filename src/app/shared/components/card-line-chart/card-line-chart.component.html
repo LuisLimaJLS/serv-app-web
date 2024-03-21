@@ -1,5 +1,5 @@
-<c-card [cBorder]="abonado.color.color" [textColor]="abonado.color.textColor" class="mb-3">
-  <c-card-header>{{abonado.nro_medidor}}</c-card-header>
+<c-card [cBorder]="color.color" [textColor]="color.textColor" class="mb-3">
+  <c-card-header><strong>{{header}}</strong></c-card-header>
   <c-card-body>
     <c-chart
       [data]="data"

@@ -16,7 +16,6 @@ import { Subscription } from 'rxjs';
 })
 export class DashboardPageComponent {
   dataAbonados: Array<AbonadoModel> = []
-  dataEmisiones: Array<EmisionModel> = []
   listObservers$: Array<Subscription> = []
 
   constructor(private abonadoService: AbonadoService) { }

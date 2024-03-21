@@ -1,0 +1,13 @@
+<c-card [color]="colors.color"
+  [textColor]="colors.color === 'warning' || colors.color === 'light' ? '' :  'white'"
+  class="mb-3">
+    <c-card-header>Header</c-card-header>
+    <c-card-body class="bg-gradient">
+      <h5 cCardTitle>{{colors.color}} card title</h5>
+      <p cCardText>
+      Some quick example text to build on the card title and make up the bulk of
+      the card&#39;s content.
+      </p>
+      <button [color]="colors.color" cButton class="shadow">Go somewhere</button>
+    </c-card-body>
+</c-card>

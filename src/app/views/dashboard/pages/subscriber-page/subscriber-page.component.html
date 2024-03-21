@@ -1,1 +1,23 @@
-<p>subscriber-page works!</p>
+<div class="subscriber-page">
+
+  <c-row class="d-flex justify-content-center align-items-center">
+    <c-col  index as i [lg]="4">
+      <app-card-subscriber></app-card-subscriber>
+    </c-col>
+    <c-col index as i [lg]="4">
+      <app-card-line-chart [color]="{ color: 'success', textColor: 'success' }" [header]='"MED-9999999"' [dataEmisiones]="[]" [mode]='"value_summary"'></app-card-line-chart>
+    </c-col>
+    <c-col index as i [lg]="4">
+      <app-card-bar-char></app-card-bar-char>
+    </c-col>
+  </c-row>
+  <c-row class="d-flex justify-content-center align-items-center">
+    <c-col index as i [lg]="4">
+      <app-card-polar-area-chart></app-card-polar-area-chart>
+    </c-col>
+    <c-col index as i [lg]="8">
+      <p>subscriber-page works!</p>
+    </c-col>
+  </c-row>
+
+</div>

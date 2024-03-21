@@ -1,6 +1,9 @@
-<c-card [cBorder]="abonado.color.color" [textColor]="abonado.color.textColor" class="mb-3">
-  <c-card-header>Agua Potable</c-card-header>
-  <c-card-body>
+<!--<c-card [cBorder]="abonado.color.color" [textColor]="abonado.color.textColor" class="mb-3">-->
+<c-card [color]="abonado.color.color"
+[textColor]="abonado.color.color === 'warning' || abonado.color.color === 'light' ? '' :  'white'"
+class="mb-3">
+  <c-card-header><strong>Agua Potable</strong></c-card-header>
+  <c-card-body class="bg-gradient">
     <h5 cCardTitle>{{abonado.nro_medidor}}</h5>
     <ul>
       <li>Categoría: {{abonado.id_categoria}}</li>
@@ -11,6 +14,7 @@
     </ul>
     <p cCardText>
     </p>
-    <button [color]="abonado.color.color" cButton>Ver Información</button>
+    <!--<button [color]="abonado.color.color" cButton>Ver Información</button>-->
+    <button [color]="abonado.color.color" cButton class="shadow">Ver Información</button>
   </c-card-body>
 </c-card>

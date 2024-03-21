@@ -11,10 +11,10 @@
         <div class="accordion-body">
           <c-row class="d-flex justify-content-center align-items-center">
             <c-col  index as i [lg]="5">
-              <app-card-line-chart [abonado]="abonado" [mode]='"value_summary"'></app-card-line-chart>
+              <app-card-line-chart [color]="abonado.color" [header]="abonado.nro_medidor" [dataEmisiones]="abonado.emisiones" [mode]='"value_summary"'></app-card-line-chart>
             </c-col>
             <c-col index as i [lg]="5">
-              <app-card-line-chart [abonado]="abonado" [mode]='"consume_summary"'></app-card-line-chart>
+              <app-card-line-chart [color]="abonado.color" [header]="abonado.nro_medidor" [dataEmisiones]="abonado.emisiones" [mode]='"consume_summary"'></app-card-line-chart>
             </c-col>
           </c-row>
           <c-row class="d-flex justify-content-center align-items-center">
