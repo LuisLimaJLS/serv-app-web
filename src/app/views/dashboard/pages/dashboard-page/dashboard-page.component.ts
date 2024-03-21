@@ -1,10 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AbonadoModel } from '@core/models/abonado.model';
 import { EmisionModel } from '@core/models/emision.model';
 import { SectionGenericComponent } from '@shared/components/section-generic/section-generic.component';
 import { AbonadoService } from '@views/dashboard/services/abonado.service';
 import { response } from 'express';
+import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -18,7 +19,12 @@ export class DashboardPageComponent {
   dataAbonados: Array<AbonadoModel> = []
   listObservers$: Array<Subscription> = []
 
-  constructor(private abonadoService: AbonadoService) { }
+  identifier:string = this.cookie.get('userId');
+
+  constructor(
+    private abonadoService: AbonadoService,
+    private cookie: CookieService
+    ) { }
 
   ngOnInit(): void {
     this.loadDataAll()
@@ -26,7 +32,7 @@ export class DashboardPageComponent {
 
   async loadDataAll(): Promise<any> {
     //this.dataAbonados = await this.abonadoService.getAllAbonados$().toPromise()
-    this.abonadoService.getAllAbonados$().subscribe({
+    this.abonadoService.getAllAbonados$(this.identifier, '6').subscribe({
       next: (info) => {
         this.dataAbonados = info
         this.dataAbonados.forEach(function (abonado) {

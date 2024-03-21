@@ -20,3 +20,7 @@ header {
 .modal-custom {
   max-width: 800px; /* Cambia este valor según tus necesidades */
 }
+
+a {
+  cursor: pointer;
+}

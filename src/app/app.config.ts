@@ -7,7 +7,8 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { SidebarNavHelper } from '@coreui/angular';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { MatPaginatorIntl } from '@angular/material/paginator';
-//import { injectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
+import { CookieService } from 'ngx-cookie-service';
+import { injectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,12 +16,12 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideHttpClient(withFetch()),
     provideHttpClient (
-      //withInterceptors ([injectSessionInterceptor])
+      withInterceptors ([injectSessionInterceptor])
     ),
     SidebarNavHelper,
     provideAnimations(),
-    MatPaginatorIntl
-
+    MatPaginatorIntl,
+    CookieService
   ],
 
 };

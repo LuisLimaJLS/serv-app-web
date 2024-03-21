@@ -3,6 +3,7 @@ import { Component, HostListener, Inject, Input, PLATFORM_ID } from '@angular/co
 import { FormsModule } from '@angular/forms';
 import { SearchModel } from '@core/models/search.model';
 import { SearchService } from '@views/search/services/search.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-search-page',
@@ -15,6 +16,7 @@ import { SearchService } from '@views/search/services/search.service';
 })
 export class SearchPageComponent {
   //listResults$: Observable<any> = of([])
+  identifier:string = this.cookie.get('userId');
   dataSearch: Array<SearchModel> = []
   src: string = '';
   @Input() mode: 'full' | 'min'  = 'full';
@@ -22,6 +24,7 @@ export class SearchPageComponent {
 
   constructor(
     private searchService: SearchService,
+    private cookie: CookieService,
     @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
@@ -33,7 +36,7 @@ export class SearchPageComponent {
     if (term.length >= 3) {
       //envia dato al padre
       if (this.mode == 'full'){
-        this.searchService.getAllSearchFull$('2506716965001',term).subscribe({
+        this.searchService.getAllSearchFull$(this.identifier,term).subscribe({
           next: (info) => {
             this.dataSearch = info;
             this.loadColors(this.mode);
@@ -41,7 +44,7 @@ export class SearchPageComponent {
           error: (error: any) => {console.log("ERROR: ",error)}
         })
       }else{
-        this.searchService.getAllSearchMin$('2506716965001',term).subscribe({
+        this.searchService.getAllSearchMin$(this.identifier,term).subscribe({
           next: (info) => {
             this.dataSearch = info;
             this.loadColors(this.mode);

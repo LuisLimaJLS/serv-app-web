@@ -7,6 +7,7 @@ import { AbonadoService } from '@views/dashboard/services/abonado.service';
 import { Subscription } from 'rxjs';
 import { CardLineChartComponent } from '@shared/components/card-line-chart/card-line-chart.component';
 import { ListHistoryPageComponent } from '../list-history-page/list-history-page.component';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-history-page',
   standalone: true,
@@ -25,8 +26,11 @@ export class HistoryPageComponent {
 
   dataAbonados: Array<AbonadoModel> = []
   listObservers$: Array<Subscription> = []
+  identifier:string = this.cookie.get('userId');
 
-  constructor(private abonadoService: AbonadoService) { }
+  constructor(private abonadoService: AbonadoService,
+    private cookie: CookieService
+    ) { }
 
   ngOnInit(): void {
     this.loadDataAll();
@@ -34,7 +38,7 @@ export class HistoryPageComponent {
 
   async loadDataAll(): Promise<any> {
     //this.dataAbonados = await this.abonadoService.getAllAbonados$().toPromise()
-    this.abonadoService.getAllAbonados$().subscribe({
+    this.abonadoService.getAllAbonados$(this.identifier, '6').subscribe({
       next: (info) => {
         this.dataAbonados = info
         this.dataAbonados.forEach(function (abonado) {

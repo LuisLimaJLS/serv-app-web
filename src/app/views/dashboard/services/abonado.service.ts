@@ -16,11 +16,11 @@ export class AbonadoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllAbonados$(): Observable<any> {
-    return this.httpClient.get(`${this.URL}/abonadosByCI/2506716965001`)
+  getAllAbonados$(identifier: string, nro_meses: string): Observable<any> {
+    return this.httpClient.get(`${this.URL}/abonadosByCI/${identifier}/${nro_meses}`)
   }
 
-  getAllEmisions$(): Observable<any> {
+  getAllEmisions$(identifier: string): Observable<any> {
     return this.httpClient.get(`${this.URL}/emisionsByAbonado/115147/6`)
   }
 }
