@@ -5,6 +5,7 @@ import { navItems } from './_nav';
 import { AbonadoService } from '@views/dashboard/services/abonado.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AbonadoModel } from '@core/models/abonado.model';
+import { Observable } from 'rxjs';
 //import { SidebarComponent, SidebarBrandComponent, SidebarNavComponent, SidebarTogglerComponent } from '@coreui/angular';
 
 @Component({
@@ -41,6 +42,8 @@ export class SideBarComponent {
     this.isSidebarOpen = windowWidth > 768;
   }
 
+  idAbonado: number = 0;
+
   constructor(private router: Router,
     private abonadoService: AbonadoService,
     private cookie: CookieService) { }
@@ -57,12 +60,17 @@ export class SideBarComponent {
       next: (info) => {
         this.dataAbonados = info
         this.dataAbonados.forEach( (abonado) => {
+          /*this.abonadoService.setAbonadoId(abonado.id);
+          this.abonadoService.getAbonadoId().subscribe(id => {
+            this.idAbonado = id;
+          });*/
+
           this.mainMenu.customOptions.push (
             {
               name: abonado.nro_medidor,
               icon: 'uil uil-tear',
               router: ['/', 'home', 'subscriber'],
-              query : {abonado: abonado.id}
+              query : {id_abonado: abonado.id},
             }
           )
         });
@@ -70,5 +78,9 @@ export class SideBarComponent {
       error: (error: any) => {console.log("ERROR: ",error)}
     })
   }
+
+  /*showService(id_abonado: number): void {
+    this.router.navigate(['/home/subscriber', id_abonado]);
+  }*/
 
 }

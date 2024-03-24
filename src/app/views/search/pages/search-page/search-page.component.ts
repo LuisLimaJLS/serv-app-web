@@ -1,6 +1,7 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, HostListener, Inject, Input, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { SearchModel } from '@core/models/search.model';
 import { SearchService } from '@views/search/services/search.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -10,7 +11,8 @@ import { CookieService } from 'ngx-cookie-service';
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule],
+    FormsModule,
+    RouterModule],
   templateUrl: './search-page.component.html',
   styleUrl: './search-page.component.css'
 })

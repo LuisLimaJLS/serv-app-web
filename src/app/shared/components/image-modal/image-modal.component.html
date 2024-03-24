@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Foto</h2>
+<div mat-dialog-content>
+  <img [src]="data.imageUrl" alt="Foto" width="300px" height="300px">
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">Cerrar</button>
+</div>
+
+<!--
+<h2 mat-dialog-title>Foto</h2>
+<mat-dialog-content>
+  <img [src]="data.imageUrl" alt="Imagen">
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>
+-->

@@ -87,7 +87,7 @@ export class HeaderComponent {
               name: abonado.nro_medidor,
               icon: 'uil uil-tear',
               router: ['/', 'home', 'subscriber'],
-              query : {abonado: abonado.id}
+              query : {id_abonado: abonado.id},
             }
           )
         });

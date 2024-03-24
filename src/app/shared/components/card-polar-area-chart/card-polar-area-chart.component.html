@@ -1,6 +1,6 @@
-<c-card class="mb-3">
-  <c-card-header>Polar chart</c-card-header>
+<c-card [cBorder]="color.color" [textColor]="color.textColor" class="mb-3">
+  <c-card-header><strong>{{header}}</strong></c-card-header>
   <c-card-body>
-    <c-chart [data]="data" type="polarArea" />
+    <c-chart [data]="data" type="doughnut" />
   </c-card-body>
 </c-card>

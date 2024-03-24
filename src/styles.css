@@ -38,3 +38,56 @@ button:disabled {
   opacity: .5;
 }
 
+/* Estilos del botón */
+.boton-medidor {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #dc2e7c; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  text-decoration: none; /* Quitar subrayado del texto */
+  border-radius: 5px; /* Bordes redondeados */
+  border: none; /* Quitar borde */
+  cursor: pointer; /* Cambiar cursor al pasar por encima */
+  transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+}
+
+/* Cambiar color de fondo al pasar el cursor */
+.boton-medidor:hover {
+  background-color: #d00a63; /* Color de fondo verde más oscuro */
+}
+
+/* Estilos del botón */
+.boton-emision {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #5f2edc; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  text-decoration: none; /* Quitar subrayado del texto */
+  border-radius: 5px; /* Bordes redondeados */
+  border: none; /* Quitar borde */
+  cursor: pointer; /* Cambiar cursor al pasar por encima */
+  transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+}
+
+/* Cambiar color de fondo al pasar el cursor */
+.boton-emsion:hover {
+  background-color: #500091; /* Color de fondo verde más oscuro */
+}
+
+/* Estilos del botón */
+.boton-imagen {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #9e6605; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  text-decoration: none; /* Quitar subrayado del texto */
+  border-radius: 5px; /* Bordes redondeados */
+  border: none; /* Quitar borde */
+  cursor: pointer; /* Cambiar cursor al pasar por encima */
+  transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+}
+
+/* Cambiar color de fondo al pasar el cursor */
+.boton-emsion:hover {
+  background-color: #804b00; /* Color de fondo verde más oscuro */
+}

@@ -1,13 +1,21 @@
-<c-card [color]="colors.color"
-  [textColor]="colors.color === 'warning' || colors.color === 'light' ? '' :  'white'"
-  class="mb-3">
-    <c-card-header>Header</c-card-header>
-    <c-card-body class="bg-gradient">
-      <h5 cCardTitle>{{colors.color}} card title</h5>
-      <p cCardText>
-      Some quick example text to build on the card title and make up the bulk of
-      the card&#39;s content.
-      </p>
-      <button [color]="colors.color" cButton class="shadow">Go somewhere</button>
-    </c-card-body>
+<c-card [color]="abonado.color.color"
+[textColor]="abonado.color.color === 'warning' || abonado.color.color === 'light' ? '' :  'white'"
+class="mb-3">
+  <c-card-header><strong>{{abonado.id_cliente}}</strong></c-card-header>
+  <c-card-body class="bg-gradient">
+    <h5 cCardTitle>{{abonado.nro_medidor}}</h5>
+    <ul>
+      <li><strong>Categoría:</strong> {{abonado.id_categoria}}</li>
+      <li><strong>Predio:</strong> {{abonado.id_predio}}</li>
+      <li *ngIf="abonado.estado == 1"><strong>Estado: </strong> Activo</li>
+      <li *ngIf="abonado.estado == 0"><strong>Estado: </strong>  Inactivo</li>
+      <li><strong>Ubicación:</strong> {{abonado.id_ruta}}</li>
+      <li><strong>Fecha de instalación:</strong> {{abonado.fecha_instalacion}}</li>
+      <li><strong>Último consumo:</strong> {{abonado.emisiones?abonado.emisiones[0].consumo:0}}</li>
+      <li><strong>Consumo promedio:</strong> {{abonado.emisiones?abonado.emisiones[0].promedio_consumo:0}}</li>
+      <li><strong>Observación:</strong> {{abonado.observacion}}</li>
+    </ul>
+    <p cCardText>
+    </p>
+  </c-card-body>
 </c-card>

@@ -9,10 +9,12 @@ export const dashboardRoutes: Routes = [
     component: DashboardPageComponent
   },
   {
+    //path:'subscriber/:id_abonado',
     path:'subscriber',
     component: SubscriberPageComponent
   },
   {
+    //path:'emission/:id_emision',
     path:'emission',
     component: EmissionPageComponent
   },

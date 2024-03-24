@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { AbonadoModel } from '@core/models/abonado.model';
 import { EmisionModel } from '@core/models/emision.model';
 
@@ -20,7 +20,16 @@ export class AbonadoService {
     return this.httpClient.get(`${this.URL}/abonadosByCI/${identifier}/${nro_meses}`)
   }
 
-  getAllEmisions$(identifier: string): Observable<any> {
-    return this.httpClient.get(`${this.URL}/emisionsByAbonado/115147/6`)
+  getAllEmisionsByAbonado$(id_abonado: number, nro_meses: string): Observable<any> {
+    return this.httpClient.get(`${this.URL}/emisionsByAbonado/${id_abonado}/${nro_meses}`)
   }
+
+  maxEmisionsByAbonado$(id_abonado: number, nro_meses: string): Observable<any> {
+    return this.httpClient.get(`${this.URL}/maxEmisionsByAbonado/${id_abonado}/${nro_meses}`)
+  }
+
+  getDetailValuesByAbonado$(id_abonado: number, nro_meses: string): Observable<any> {
+    return this.httpClient.get(`${this.URL}/getDetailValuesByAbonado/${id_abonado}/${nro_meses}`)
+  }
+
 }

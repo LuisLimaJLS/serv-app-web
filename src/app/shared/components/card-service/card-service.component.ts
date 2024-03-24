@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { AbonadoModel } from '@core/models/abonado.model';
 import { CardModule, RowComponent, ColComponent, BorderDirective, ButtonDirective } from '@coreui/angular';
 
@@ -12,7 +13,8 @@ import { CardModule, RowComponent, ColComponent, BorderDirective, ButtonDirectiv
     RowComponent,
     ColComponent,
     BorderDirective,
-    ButtonDirective],
+    ButtonDirective,
+    RouterModule],
   templateUrl: './card-service.component.html',
   styleUrl: './card-service.component.css'
 })

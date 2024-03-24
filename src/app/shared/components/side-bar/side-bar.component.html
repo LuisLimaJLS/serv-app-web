@@ -18,7 +18,7 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item" *ngFor="let item of mainMenu.customOptions">
-      <a class="nav-link text-white cursor-pointer" [routerLink]="item.router" [queryParams]="item.query">
+      <a class="nav-link text-white cursor-pointer" [routerLink]="item.router" [queryParams]="item.query"> <!--(click)="showService(item.query.id_abonado)"  [routerLink]="['/home/subscriber' , item.query.id_abonado]">-->
         <i class="icon-with-text" [ngClass]="['uil', item.icon]"></i>
         <span>{{ item.name }}</span>
       </a>

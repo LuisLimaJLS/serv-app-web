@@ -15,6 +15,6 @@ class="mb-3">
     <p cCardText>
     </p>
     <!--<button [color]="abonado.color.color" cButton>Ver Información</button>-->
-    <button [color]="abonado.color.color" cButton class="shadow">Ver Información</button>
+    <button [routerLink]="['/', 'home', 'subscriber']" [queryParams]="{id_abonado: abonado.id}" [color]="abonado.color.color" cButton class="shadow">Ver Información</button>
   </c-card-body>
 </c-card>

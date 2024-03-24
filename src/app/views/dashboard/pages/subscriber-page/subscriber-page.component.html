@@ -2,21 +2,22 @@
 
   <c-row class="d-flex justify-content-center align-items-center">
     <c-col  index as i [lg]="4">
-      <app-card-subscriber></app-card-subscriber>
+      <app-card-subscriber [abonado]="dataAbonados[0]"></app-card-subscriber>
     </c-col>
     <c-col index as i [lg]="4">
-      <app-card-line-chart [color]="{ color: 'success', textColor: 'success' }" [header]='"MED-9999999"' [dataEmisiones]="[]" [mode]='"value_summary"'></app-card-line-chart>
+      <!--<app-card-line-chart [color]="dataAbonados[0]?dataAbonados[0].color:{ color: 'success', textColor: 'success' }" [header]='"Resumen de Consumo"' [dataEmisiones]="dataAbonados[0]?dataAbonados[0].emisiones:[]" [mode]='"all_summary"'></app-card-line-chart>-->
+      <app-card-line-chart *ngIf="dataAbonados[0].emisiones && dataAbonados[0].emisiones.length > 0" [color]="dataAbonados[0]?dataAbonados[0].color:{ color: 'success', textColor: 'success' }" [header]='"Resumen de Consumo"' [dataEmisiones]="dataAbonados[0].emisiones" [mode]='"all_summary"'></app-card-line-chart>
     </c-col>
     <c-col index as i [lg]="4">
-      <app-card-bar-char></app-card-bar-char>
+      <app-card-bar-char *ngIf="maxEmissions && maxEmissions.length > 0" [color]="dataAbonados[0]?dataAbonados[0].color:{ color: 'success', textColor: 'success' }" [header]='"Mayor consumo"' [dataEmisiones]="maxEmissions"></app-card-bar-char>
     </c-col>
   </c-row>
   <c-row class="d-flex justify-content-center align-items-center">
     <c-col index as i [lg]="4">
-      <app-card-polar-area-chart></app-card-polar-area-chart>
+      <app-card-polar-area-chart *ngIf="detailValues && detailValues.length > 0" [color]="dataAbonados[0]?dataAbonados[0].color:{ color: 'success', textColor: 'success' }" [header]='"Detalle de rubros"' [detailValues]="detailValues"></app-card-polar-area-chart>
     </c-col>
     <c-col index as i [lg]="8">
-      <p>subscriber-page works!</p>
+      <app-list-history-page *ngIf="dataAbonados[0]" [abonado]="dataAbonados[0]" ></app-list-history-page>
     </c-col>
   </c-row>
 

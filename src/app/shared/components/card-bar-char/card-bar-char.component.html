@@ -1,5 +1,5 @@
-<c-card class="mb-3">
-  <c-card-header>BAR chart</c-card-header>
+<c-card [cBorder]="color.color" [textColor]="color.textColor" class="mb-3">
+  <c-card-header><strong>{{header}}</strong></c-card-header>
   <c-card-body>
     <c-chart [data]="data" type="bar" />
   </c-card-body>

@@ -11,10 +11,10 @@
           <tr class="table-light">
             <th scope="col">Cuenta</th>
             <th scope="col">Medidor</th>
-            <th scope="col">Ubicacion</th>
-            <th scope="col">Categoria</th>
-            <th scope="col">Emision</th>
-            <th scope="col">Fecha Emision</th>
+            <th scope="col">Ubicación</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Emisión</th>
+            <th scope="col">Fecha Emisión</th>
             <th scope="col">Lectura Actual</th>
             <th scope="col">Lectura Anterior</th>
             <th scope="col">Consumo</th>
@@ -26,10 +26,14 @@
         <tbody *ngFor="let item of dataSearch">
           <tr [ngClass]="[item.color.tableColor]">
             <th scope="row">{{item.id_abonado}}</th>
-            <td>{{item.nro_medidor}}</td>
+            <td>
+              <a [routerLink]="['/', 'home', 'subscriber']" [queryParams]="{id_abonado: item.id_abonado}" class="boton-medidor">{{item.nro_medidor}}</a>
+            </td>
             <td>{{item.id_ruta}}</td>
             <td>{{item.id_categoria}}</td>
-            <td>{{item.emsion}}</td>
+            <td>
+              <a [routerLink]="['/home/emission', item.id_emision]" class="boton-emision">{{item.emsion}}</a>
+            </td>
             <td>{{item.fecha_emision}}</td>
             <td>{{item.lectura_actual}}</td>
             <td>{{item.lectura_anterior}}</td>
@@ -47,8 +51,8 @@
           <tr class="table-light">
             <th scope="col">Cuenta</th>
             <th scope="col">Medidor</th>
-            <th scope="col">Emision</th>
-            <th scope="col">Fecha Emision</th>
+            <th scope="col">Emisión</th>
+            <th scope="col">Fecha Emisión</th>
             <th scope="col">Consumo</th>
             <th scope="col">Valor</th>
           </tr>
@@ -56,8 +60,12 @@
         <tbody *ngFor="let item of dataSearch">
           <tr [ngClass]="[item.color.tableColor]">
             <th scope="row">{{item.id_abonado}}</th>
-            <td>{{item.nro_medidor}}</td>
-            <td>{{item.emsion}}</td>
+            <td>
+              <a [routerLink]="['/home/subscriber', item.id_abonado]" class="boton-medidor">{{item.nro_medidor}}</a>
+            </td>
+            <td>
+              <a [routerLink]="['/home/emission', item.id_emision]" class="boton-emision">{{item.emsion}}</a>
+            </td>
             <td>{{item.fecha_emision}}</td>
             <td>{{item.consumo}}</td>
             <td>{{item.valor}}</td>
