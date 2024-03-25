@@ -9,21 +9,23 @@ import { CardPhotoComponent } from '@shared/components/card-photo/card-photo.com
 import { AbonadoService } from '@views/dashboard/services/abonado.service';
 import { Observable } from 'rxjs';
 import { ListValuesPageComponent } from '../list-values-page/list-values-page.component';
+import { CardInvoiceComponent } from "@shared/components/card-invoice/card-invoice.component";
 
 @Component({
-  selector: 'app-emission-page',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RowComponent,
-    ColComponent,
-    CardEmissionComponent,
-    CardLineChartComponent,
-    CardPhotoComponent,
-    ListValuesPageComponent
-  ],
-  templateUrl: './emission-page.component.html',
-  styleUrl: './emission-page.component.css'
+    selector: 'app-emission-page',
+    standalone: true,
+    templateUrl: './emission-page.component.html',
+    styleUrl: './emission-page.component.css',
+    imports: [
+        CommonModule,
+        RowComponent,
+        ColComponent,
+        CardEmissionComponent,
+        CardLineChartComponent,
+        CardPhotoComponent,
+        ListValuesPageComponent,
+        CardInvoiceComponent
+    ]
 })
 export class EmissionPageComponent {
   id_emision: number = 0;

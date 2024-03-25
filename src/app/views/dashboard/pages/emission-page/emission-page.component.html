@@ -8,7 +8,7 @@
       <app-card-line-chart *ngIf="dataEmision?.emisiones" [color]="this_color" [header]='"Resumen de Consumo"' [dataEmisiones]="dataEmision?.emisiones" [mode]='"all_summary"'></app-card-line-chart>
     </c-col>
     <c-col index as i [lg]="4">
-      <app-card-photo [color]="this_color"></app-card-photo>
+      <app-card-invoice [color]="this_color"></app-card-invoice>
     </c-col>
   </c-row>
   <c-row class="d-flex justify-content-center align-items-center">

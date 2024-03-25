@@ -1,5 +1,5 @@
 .contenedor {
-  width: 450px; /* Ancho del contenedor */
+  width: 100%; /* Ancho del contenedor */
   border: 1px solid #ccc; /* Borde para visualización */
   overflow: hidden; /* Para manejar imágenes grandes */
   align-items: center;
