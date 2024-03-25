@@ -6,5 +6,6 @@ export interface EmisionModel {
   consumo: number;
   valor: number;
   promedio_consumo: number;
-  promedio_valor: number
+  promedio_valor: number;
+  color?:any;
 }

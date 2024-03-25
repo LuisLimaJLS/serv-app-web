@@ -32,7 +32,7 @@
             <td>{{item.id_ruta}}</td>
             <td>{{item.id_categoria}}</td>
             <td>
-              <a [routerLink]="['/home/emission', item.id_emision]" class="boton-emision">{{item.emsion}}</a>
+              <a [routerLink]="['/', 'home', 'emission']" [queryParams]="{id_emision: item.id_emision}" class="boton-emision">{{item.emsion}}</a>
             </td>
             <td>{{item.fecha_emision}}</td>
             <td>{{item.lectura_actual}}</td>
@@ -61,10 +61,10 @@
           <tr [ngClass]="[item.color.tableColor]">
             <th scope="row">{{item.id_abonado}}</th>
             <td>
-              <a [routerLink]="['/home/subscriber', item.id_abonado]" class="boton-medidor">{{item.nro_medidor}}</a>
+              <a [routerLink]="['/', 'home', 'subscriber']" [queryParams]="{id_abonado: item.id_abonado}" class="boton-medidor">{{item.nro_medidor}}</a>
             </td>
             <td>
-              <a [routerLink]="['/home/emission', item.id_emision]" class="boton-emision">{{item.emsion}}</a>
+              <a [routerLink]="['/', 'home', 'emission']" [queryParams]="{id_emision: item.id_emision}" class="boton-emision">{{item.emsion}}</a>
             </td>
             <td>{{item.fecha_emision}}</td>
             <td>{{item.consumo}}</td>

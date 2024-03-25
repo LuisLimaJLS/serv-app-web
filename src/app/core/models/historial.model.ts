@@ -11,5 +11,6 @@ export interface HistorialModel {
   valor: number;
   estado: number;
   pagado: number;
-  fecha_cobro: Date
+  fecha_cobro: Date;
+  nro_factura: string;
 }

@@ -32,4 +32,8 @@ export class AbonadoService {
     return this.httpClient.get(`${this.URL}/getDetailValuesByAbonado/${id_abonado}/${nro_meses}`)
   }
 
+  getDataByEmission$(id_emision: number, nro_meses: string): Observable<any> {
+    return this.httpClient.get(`${this.URL}/dataByEmission/${id_emision}/${nro_meses}`)
+  }
+
 }

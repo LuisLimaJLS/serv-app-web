@@ -78,7 +78,7 @@ button:disabled {
 .boton-imagen {
   display: inline-block;
   padding: 5px 10px;
-  background-color: #9e6605; /* Color de fondo verde */
+  background-color: #455d6b; /* Color de fondo verde */
   color: white; /* Color del texto */
   text-decoration: none; /* Quitar subrayado del texto */
   border-radius: 5px; /* Bordes redondeados */

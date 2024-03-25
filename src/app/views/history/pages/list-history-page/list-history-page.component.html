@@ -1,45 +1,26 @@
 <c-card [cBorder]="abonado.color.color" [textColor]="abonado.color.textColor" class="mb-3">
-  <c-card-header>Historial</c-card-header>
+  <c-card-header><strong>Historial</strong></c-card-header>
   <c-card-body>
     <div>
       <input type="text" class="form-control me-2" placeholder="Buscar..." (keyup)="filterData($event)">
     </div>
-    <!--
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="name1">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="name2">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
-    -->
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource">
 
         <ng-container matColumnDef="emision">
           <th mat-header-cell *matHeaderCellDef> <strong>Emisión</strong></th>
-          <td mat-cell *matCellDef="let element"> <a [routerLink]="['/home/emission', element.id_emision]" class="boton-emision">{{element.emsion}}</a> </td>
+          <td mat-cell *matCellDef="let element"> <a [routerLink]="['/', 'home', 'emission']" [queryParams]="{id_emision: element.id_emision}" class="boton-emision">{{element.emsion}}</a> </td>
         </ng-container>
 
         <ng-container matColumnDef="lectura_actual">
           <th mat-header-cell *matHeaderCellDef> Lectura Actual </th>
           <td mat-cell *matCellDef="let element">
             <!--<a href="javascript:void(0)" (click)="openImageModal(element)" class="boton-emision">{{element.lectura_actual}}</a>-->
-            <a href="javascript:void(0)" class="boton-imagen">{{element.lectura_actual}}</a>
+            <!--<a href="javascript:void(0)" class="boton-imagen">{{element.lectura_actual}}</a>-->
+            <button type="button" class="boton-imagen" data-bs-toggle="modal" data-bs-target="#exampleModalImage">
+              {{element.lectura_actual}}
+            </button>
+
           </td>
         </ng-container>
 
@@ -94,3 +75,21 @@
     </div>
   </c-card-body>
 </c-card>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalImage" tabindex="-1" aria-labelledby="exampleModalLabelImage" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabelImage">Foto Lectura</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body contenedor">
+        <img src="https://www.afnbc.com/imagenes/medidor-agua-3-julio-20.jpg" alt="Foto Lectura">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

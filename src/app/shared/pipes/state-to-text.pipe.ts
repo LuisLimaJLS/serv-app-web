@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class StateToTextPipe implements PipeTransform {
 
-  transform(value: number): string {
+  transform(value: number | undefined): string {
     switch (value) {
       case 0:
           return "Baja";

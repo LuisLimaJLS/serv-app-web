@@ -1,0 +1,23 @@
+<c-card [color]="color.color"
+[textColor]="color.color === 'warning' || color.color === 'light' ? '' :  'white'"
+class="mb-3">
+  <c-card-header><strong>Emisión: {{historial?.emsion}}</strong></c-card-header>
+  <c-card-body class="bg-gradient">
+    <h5 cCardTitle>Nro.{{historial?.id_emision}}</h5>
+    <ul>
+      <li><strong>Fecha de Emisión:</strong> {{historial?.fecha_emision | date:"dd/MM/yyyy"}}</li>
+      <li><strong>Novedad:</strong> {{historial?.novedad}} m3</li>
+      <li><strong>Consumo:</strong> {{historial?.consumo}} m3</li>
+      <li><strong>Valor:</strong> ${{historial?.valor}}</li>
+      <li><strong>Lectura Actual:</strong> {{historial?.lectura_actual}}</li>
+      <li><strong>Lectura Anterior:</strong> {{historial?.lectura_anterior}}</li>
+      <li><strong>Estado de la Emisión:</strong> {{historial?.estado | stateToText}}</li>
+      <li><strong>Estado de la Factura:</strong> {{historial?.pagado | payToText}}</li>
+      <li *ngIf="historial?.pagado == 1"><strong>Nro. de la Factura:</strong> {{historial?.nro_factura}}</li>
+      <!--{{element.fecha_cobro | date:"dd/MM/yyyy"}}-->
+    </ul>
+    <p cCardText>
+    </p>
+    <button [routerLink]="['/', 'home', 'subscriber']" [queryParams]="{id_abonado: historial?.id_abonado}" [color]="color.color" cButton class="shadow">{{historial?.nro_medidor}}</button>
+  </c-card-body>
+</c-card>

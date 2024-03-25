@@ -1,6 +1,8 @@
 .contact-page {
   padding: 1rem;
   color: var(--color-3);
+  max-width: 1200px;
+  margin: auto;
 }
 
 .container-body {

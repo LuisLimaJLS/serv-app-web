@@ -1,10 +1,9 @@
-h4 {
-  color: black;
-}
 .contenedor {
-  width: 495px; /* Ancho del contenedor */
+  width: 450px; /* Ancho del contenedor */
   border: 1px solid #ccc; /* Borde para visualización */
   overflow: hidden; /* Para manejar imágenes grandes */
+  align-items: center;
+  margin: auto;
 }
 .contenedor img {
   width: 100%; /* La imagen ocupa todo el ancho del contenedor */

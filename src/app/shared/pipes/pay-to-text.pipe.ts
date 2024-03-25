@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: true
 })
 export class PayToTextPipe implements PipeTransform {
-  transform(value: number): string {
+  transform(value: number | undefined): string {
     switch (value) {
       case 0:
           return "No Pagado";
