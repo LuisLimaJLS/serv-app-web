@@ -1,10 +1,27 @@
 <div class="alerts-page">
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
+  <h1>Alertas</h1>
+  <c-row *ngIf="dataAlerts && dataAlerts.length > 0">
+    <c-col *ngFor="let alert of dataAlerts; index as i" [lg]="12">
+      <div *ngIf="alert.color.color=='danger'" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>¡Alerta!</strong> La emisión
+        <strong>
+          <a [routerLink]="['/', 'home', 'emission']" [queryParams]="{id_emision: alert.id_emision}" class="boton-emision">{{alert.emsion}}</a>
+        </strong> del medidor
+        <strong>
+          <a [routerLink]="['/', 'home', 'subscriber']" [queryParams]="{id_abonado: alert.id_abonado}" class="boton-medidor">{{alert.nro_medidor}}</a>
+        </strong> tiene <strong>{{alert.consumo}}m³</strong> de consumo y es mayor al doble consumo promedio de <strong>{{alert.promedio_consumo}}m³</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <div *ngIf="alert.color.color=='warning'" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>¡Advertencia!</strong> La emisión
+        <strong>
+          <a [routerLink]="['/', 'home', 'emission']" [queryParams]="{id_emision: alert.id_emision}" class="boton-emision">{{alert.emsion}}</a>
+        </strong> del medidor
+        <strong>
+          <a [routerLink]="['/', 'home', 'subscriber']" [queryParams]="{id_abonado: alert.id_abonado}" class="boton-medidor">{{alert.nro_medidor}}</a>
+        </strong> tiene <strong>{{alert.consumo}}m³</strong> de consumo y es mayor al consumo promedio de <strong>{{alert.promedio_consumo}}m³</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </c-col>
+  </c-row>
 </div>
