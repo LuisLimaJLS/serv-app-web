@@ -6,7 +6,8 @@ export interface ClientModel {
   direccion: string;
   fecha_nacimiento: Date;
   contrasena: string;
-  estado: string;
-  autenticado: string;
+  estado: number;
+  autenticado: boolean;
   token: string;
+  correo_electronico: string;
 }

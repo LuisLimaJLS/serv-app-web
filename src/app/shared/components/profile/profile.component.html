@@ -10,15 +10,15 @@
                           </div>
                           <div class="col-lg-6 px-xl-10">
                               <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
-                                  <h3 class="h2 text-white mb-0">John mark Doe Kyzer</h3>
-                                  <span class="text-primary">Coach</span>
+                                  <h3 class="h2 text-white mb-0">{{dataClient.apellidos}} {{dataClient.nombres}}</h3>
+                                  <span class="text-primary">{{dataClient.correo_electronico}}</span>
                               </div>
                               <ul class="list-unstyled mb-1-9">
-                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Position:</span> Coach</li>
-                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Experience:</span> 10 Years</li>
-                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email:</span> edithmail.com</li>
-                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Website:</span> www.example.com</li>
-                                  <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> 507 - 541 - 4567</li>
+                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Identificador:</span> {{dataClient.identificador}}</li>
+                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Fecha de Nacimiento:</span> {{dataClient.fecha_nacimiento}}</li>
+                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Correos Electrónico:</span> {{dataClient.correo_electronico}}</li>
+                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Dirección:</span> {{dataClient.direccion}}</li>
+                                  <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Código:</span>{{dataClient.id}}</li>
                               </ul>
                               <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
                                   <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>

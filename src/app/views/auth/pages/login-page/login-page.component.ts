@@ -46,7 +46,6 @@ export class LoginPageComponent {
 
   sendLogin(): void {
     const { identifier, password } = this.formLogin.value
-    console.log (this.formLogin.value)
     this.authService.sendCredentials(identifier, password)
       .subscribe((responseOk: { token: any; identificador: any; autenticado: any; }) => { //TODO: Cuando el usuario credenciales Correctas
         const { token, identificador, autenticado } = responseOk

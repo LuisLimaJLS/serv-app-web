@@ -8,3 +8,40 @@
 .container-body {
   align-items: center;
 }
+
+
+/* Estilos del botón */
+.boton-send {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #1ba522; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  text-decoration: none; /* Quitar subrayado del texto */
+  border-radius: 5px; /* Bordes redondeados */
+  border: none; /* Quitar borde */
+  cursor: pointer; /* Cambiar cursor al pasar por encima */
+  transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+}
+
+/* Cambiar color de fondo al pasar el cursor */
+.boton-send:hover {
+  background-color: #38d467; /* Color de fondo verde más oscuro */
+}
+
+.boton-clean {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #dc2e94; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  text-decoration: none; /* Quitar subrayado del texto */
+  border-radius: 5px; /* Bordes redondeados */
+  border: none; /* Quitar borde */
+  cursor: pointer; /* Cambiar cursor al pasar por encima */
+  transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+  margin-left: 10px;
+}
+
+/* Cambiar color de fondo al pasar el cursor */
+.boton-clean:hover {
+  background-color: #e075e0; /* Color de fondo verde más oscuro */
+}

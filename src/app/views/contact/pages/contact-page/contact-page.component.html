@@ -5,48 +5,51 @@
         Envíanos un mensaje
       </div>
       <div class="card-body">
-        <h5 class="card-title">Datos del cliente</h5>
-        <div class="row">
-          <div class="col">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="Luis Miguel">
-              <label for="floatingInput">Nombre</label>
+        <form (ngSubmit)="sendMail()" [formGroup]="formContact" action="#!">
+          <h5 class="card-title">Datos del cliente</h5>
+          <div class="row">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input formControlName="apellidos" type="text" class="form-control" id="apellidos" name="apellidos" placeholder="apellidos" value="{{dataClient.apellidos}}">
+                <label for="floatingInput">Apellidos</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input formControlName="nombres" type="text" clasas="form-control" id="nombres" name="nombres" placeholder="nombres" value="{{dataClient.nombres}}">
+                <label for="floatingInput">Nombres</label>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="Lima Juma">
-              <label for="floatingInput">Apellido</label>
+          <div class="row">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input formControlName="direccion" type="text" class="form-control" id="direccion" name="direccion" placeholder="dirección" value="{{dataClient.direccion}}">
+                <label for="floatingInput">Dirección</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input formControlName="correo_electronico" type="email" class="form-control" id="correo_electronico" name="correo_electronico" placeholder="name@example.com" value="{{dataClient.correo_electronico}}">
+                <label for="floatingInput">Correo Electrónico</label>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="+5936585252545l">
-              <label for="floatingInput">Telefono</label>
-            </div>
+          <p class="card-text">Asunto:</p>
+          <div class="form-floating">
+            <input formControlName="asunto" type="text" class="form-control" id="asunto" name="asunto" placeholder="Reclamo">
+            <label for="floatingInput">Asunto</label>
           </div>
-          <div class="col">
-            <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="name@example.com">
-              <label for="floatingInput">Correo Electronico</label>
-            </div>
+          <br>
+          <p class="card-text">Escribe tu mensaje:</p>
+          <div class="form-floating">
+            <textarea formControlName="mensaje" class="form-control" placeholder="Leave a comment here" id="mensaje" name="mensaje" style="height: 100px"></textarea>
+            <label for="floatingTextarea3">Mensaje</label>
           </div>
-        </div>
-        <p class="card-text">Asunto:</p>
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Reclamo">
-          <label for="floatingInput">Asunto</label>
-        </div>
-        <br>
-        <p class="card-text">Escribe tu mensaje:</p>
-        <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea3" style="height: 100px"></textarea>
-          <label for="floatingTextarea3">Mensaje</label>
-        </div>
-        <br>
-        <a href="#" class="btn btn-primary">Enviar</a>
+          <br>
+          <button [disabled]="formContact.invalid" class="boton-send" type="submit">Enviar</button>
+          <button type="reset" class="boton-clean" >Limpiar</button>
+        </form>
       </div>
     </div>
   </div>

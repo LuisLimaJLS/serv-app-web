@@ -32,6 +32,8 @@ export class EmissionPageComponent {
   queryParams$: Observable<any> | undefined;
   dataEmision: DataEmisionModel | undefined;
   this_color = { color: 'success', textColor: 'success' }
+  cardsData: any[] = [];
+
   constructor(
     private abonadoService: AbonadoService,
     private route: ActivatedRoute,
@@ -40,44 +42,42 @@ export class EmissionPageComponent {
 
 
   ngOnInit(): void {
-    // Escuchar cambios en los queryParams
     this.queryParams$ = this.route.queryParamMap;
     this.queryParams$.subscribe(params => {
-      // Realizar acciones o cargar datos según los nuevos queryParams
-      // Por ejemplo:
       this.id_emision = params.get('id_emision');
       if (this.id_emision) {
        this.loadDataAll();
-       //this.loadMaxEmisionsByAbonado();
-       //this.loadDetailValuesByAbonado();
       }
     });
- }
+  }
 
- async loadDataAll(): Promise<any> {
-  this.abonadoService.getDataByEmission$(this.id_emision, '6').subscribe({
-    next: (info) => {
-      this.dataEmision = info
-      if (this.dataEmision && this.dataEmision.emisiones && this.dataEmision.emisiones.length > 0) {
-        const primerEmision = this.dataEmision.emisiones[0];
-        // Verificar si la tupla tiene al menos un elemento antes de acceder al elemento en la posición 0
-        if (primerEmision) {
-          if (this.dataEmision?.emisiones[0].promedio_consumo >= this.dataEmision.emisiones[0].consumo)
-            this.this_color = { color: 'success', textColor: 'success' }
-          else if ((this.dataEmision.emisiones[0].promedio_consumo * 2) <= (this.dataEmision.emisiones[0].consumo))
-            this.this_color = { color: 'danger', textColor: 'danger' }
-          else
-            this.this_color = { color: 'warning', textColor: 'warning' }
+  async loadDataAll(): Promise<any> {
+    this.abonadoService.getDataByEmission$(this.id_emision, '6').subscribe({
+      next: (info) => {
+        this.dataEmision = info
+        if (this.dataEmision && this.dataEmision.emisiones && this.dataEmision.emisiones.length > 0) {
+          const primerEmision = this.dataEmision.emisiones[0];
+          // Verificar si la tupla tiene al menos un elemento antes de acceder al elemento en la posición 0
+          if (primerEmision) {
+            if (this.dataEmision?.emisiones[0].promedio_consumo >= this.dataEmision.emisiones[0].consumo)
+              this.this_color = { color: 'success', textColor: 'success' }
+            else if ((this.dataEmision.emisiones[0].promedio_consumo * 2) <= (this.dataEmision.emisiones[0].consumo))
+              this.this_color = { color: 'danger', textColor: 'danger' }
+            else
+              this.this_color = { color: 'warning', textColor: 'warning' }
+          }
+        } else{
+          this.this_color = { color: 'dark', textColor: 'dark' }
         }
-      } else{
-        this.this_color = { color: 'dark', textColor: 'dark' }
-      }
+        this.loadCardComponents();
+      },
+      error: (error: any) => {console.log("ERROR: ",error)}
+    });
+  }
 
-    },
-    error: (error: any) => {console.log("ERROR: ",error)}
-  });
-
-
-}
+  loadCardComponents(): void {
+    this.cardsData.push({ header: 'Resumen de Consumo', dataEmisiones: this.dataEmision?.emisiones, mode: 'all_summary'});
+    this.cardsData.push({ color: this.this_color, rubros: this.dataEmision?.rubros });
+  }
 
 }
