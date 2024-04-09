@@ -1,8 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@views/auth/services/auth.service';
+import { NgxCaptchaModule } from 'ngx-captcha';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -10,7 +11,9 @@ import { CookieService } from 'ngx-cookie-service';
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    NgxCaptchaModule,
+    FormsModule
   ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
@@ -19,11 +22,14 @@ export class LoginPageComponent {
 
   errorSession: boolean = false;
   formLogin: FormGroup = new FormGroup({});
+  recaptchaResponse: string='';
+  public captchaResolved : boolean = true;
 
   constructor(
     private authService: AuthService,
     private cookie: CookieService,
-    private router: Router
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
     ) {
 
     }
@@ -39,7 +45,8 @@ export class LoginPageComponent {
             Validators.required,
             Validators.minLength(6),
             Validators.maxLength(15)
-          ])
+          ]),
+        recaptcha: new FormControl('', [Validators.required])
       }
     )
   }
@@ -69,5 +76,14 @@ export class LoginPageComponent {
 
   }
 
+  handleCaptchaResponse(captchaResponse: any): void {
+    this.recaptchaResponse = captchaResponse;
+    this.captchaResolved = (this.recaptchaResponse && this.recaptchaResponse.length > 0) ? false : true
+  }
+
+  // Verifica si estamos en el navegador antes de utilizar ngx-recaptcha2
+  shouldUseRecaptcha(): boolean {
+    return isPlatformBrowser(this.platformId);
+  }
 
 }

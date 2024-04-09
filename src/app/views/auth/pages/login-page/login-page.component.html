@@ -32,12 +32,25 @@
                     </label>
                   </div>
                 </div>
+
+                <div class="col-12">
+
+                  <div *ngIf="shouldUseRecaptcha()">
+                    <ngx-recaptcha2 #captchaElem
+                                    [siteKey]="'6LdaR7UpAAAAAHXbhZtfdqM18mGrgdt3P6gvaPk5'"
+                                    formControlName="recaptcha"
+                                    (resolved)="handleCaptchaResponse($event)">
+                    </ngx-recaptcha2>
+                  </div>
+
+
+                </div>
                 <div class="col-12">
                   <div *ngIf="errorSession">
                     Ocurrio un error con tu Identificador o Contraseña
                   </div>
                   <div class="d-grid">
-                    <button [disabled]="formLogin.invalid" class="btn bsb-btn-xl btn-dark" type="submit">Iniciar sesión</button>
+                    <button [disabled]="formLogin.invalid" [disabled]="captchaResolved" class="btn bsb-btn-xl btn-dark" type="submit">Iniciar sesión</button>
                   </div>
                 </div>
               </div>
